@@ -7,8 +7,8 @@
 }
 
 body {
-    background-color: var(--GRY);
-    color: var(--WHI);
+    background-color: var(--WHI);
+    color: var(--GRY);
 }
 
 .article-title, .article-title:hover {

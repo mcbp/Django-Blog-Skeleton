@@ -12,16 +12,39 @@
     </head>
 
     <body>
-        <form action="{% url 'accounts:logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'articles:list' %}">Django Blog</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'articles:list' %}">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="{% url 'articles:create' %}">Create Article</a></li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <form action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+                   {% endif %}
+                </ul>
+            </div>
+        </nav>
+
         <div class="container">
 
             {% block body %}
             {% endblock %}
 
         </div>
+
     </body>
+
+    <script src="{% static 'slugify.js' %}"></script>
 
 </html>
