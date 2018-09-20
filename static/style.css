@@ -1,14 +1,17 @@
+:root {
+    --KHA:#BFB48F;
+    --GRY:#564E58;
+    --RSE:#904E55;
+    --WHI:#F2EFE9;
+    --BLA:#252627;
+}
+
 body {
-    background-color: #d5e1df;
-    color: #111111 ;
-    font-family: "Georgia";
+    background-color: var(--GRY);
+    color: var(--WHI);
 }
 
-h1, h2, h3, h4, h5, h6 {
-
-}
-
-a, a:hover, a:visited {
-    color: #111111;
-    text-decoration: none;
+.article-title, .article-title:hover {
+    text-decoration: none !important;
+    color: var(--RSE) !important;
 }
