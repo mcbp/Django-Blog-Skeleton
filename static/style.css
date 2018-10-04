@@ -1,17 +1,121 @@
 :root {
     --KHA:#BFB48F;
     --GRY:#564E58;
-    --RSE:#904E55;
+    --DRSE:#904E55;
+    --RSE:#b87c82;
     --WHI:#F2EFE9;
     --BLA:#252627;
 }
 
 body {
+    background-color: var(--GRY);
+    color: var(--WHI);
+    padding-top: 65px;
+    font-family: 'Slabo 27px', serif;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fjalla One', sans-serif;
+
+}
+
+.navbar {
+    padding: 5px 30px 5px 30px;
     background-color: var(--WHI);
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.navbar-brand {
+    color: var(--GRY) !important;
+    font-size: 30px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    padding-left: 20px;
+    padding-right: 20px;
     color: var(--GRY);
 }
 
-.article-title, .article-title:hover {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: var(--RSE);
+}
+
+
+@media only screen and (min-width: 992px) {
+  #mainNav {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+  }
+  #mainNav.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -67px;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  #mainNav.is-fixed .navbar-brand {
+    color: #212529;
+  }
+  #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
+    color: #0085A1;
+  }
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+    color: #212529;
+  }
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+    color: #0085A1 !important;
+  }
+  #mainNav.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.jumbotron {
+    text-align: center;
+    min-height: 300px;
+}
+
+.bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url("/media/intro1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.btn {
+    color: var(--GRY);
+    background-color: var(--WHI);
+}
+
+.article {
+    margin: 50px 0px 50px 0px;
+    border: 3px solid transparent;
+}
+
+.article-title {
     text-decoration: none !important;
-    color: var(--RSE) !important;
+    color: var(--KHA) !important;
+}
+
+.article-hover {
+    border: 3px solid var(--RSE);
+}
+
+.rose {
+    color: var(--RSE);
+}
+
+.tnail img {
+    width: 100%;
 }

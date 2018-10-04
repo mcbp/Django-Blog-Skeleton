@@ -13,4 +13,4 @@ class Article(models.Model):
         return self.title
 
     def preview(self):
-        return self.body[:100] + '...'
+        return self.body[:200] + '...'

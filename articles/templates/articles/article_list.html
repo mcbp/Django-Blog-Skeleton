@@ -2,15 +2,34 @@
 
 {% block title %}Article List{% endblock %}
 
+{% block pre-body %}
+    <div class="bg-overlay jumbotron m-0">
+        <h1>Article List</h1>
+        <p>Explore all articles</p>
+    </div>
+{% endblock %}
+
 {% block body %}
 
-    <h1>Article List</h1>
-    {% for article in articles %}
-        <div>
-            <h3><a href="{% url 'articles:full' slug=article.slug %}" class="article-title">{{ article.title }}</a></h3>
-            <p>{{ article.preview }}</p>
-            <p>{{ article.date }}</p>
+    <div class="row">
+        <div class="col col-lg-1 col-md-1"></div>
+        <div class="col col-lg-10 col-md-10">
+            {% for article in articles %}
+                <div class="article">
+                    <div class="row">
+                        <div class="col col-lg-4 col-md-4 tnail">
+                            <img src="{{ article.thumbnail.url }}"/>
+                        </div>
+                        <div class="col col-lg-8 col-md-8">
+                            <h2><a href="{% url 'articles:full' slug=article.slug %}" class="article-title">{{ article.title }}</a></h2>
+                            <p>{{ article.preview }}</p>
+                            <p>Posted by <span class="rose">{{ article.author }}</span> on <span class="rose">{{ article.date }}</span></p>
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
         </div>
-    {% endfor %}
+        <div class="col col-lg-1 col-md-1"></div>
+    </div>
 
 {% endblock %}
